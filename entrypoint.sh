@@ -9,7 +9,6 @@ mkdir -p $log
 serverConfigFile=kafka/config/server.properties
 producerConfigFile=kafka/config/producer.properties
 
-
 if [ ! -f "/var/lib/kafka/id" ]; then
 {
     echo "${BROKER_ID}" > "/var/lib/kafka/id"
