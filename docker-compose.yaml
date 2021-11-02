@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  kafka1:
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node1
+    image: rehanchy/kafka:kafka-2.13.2.7.0-1
+    hostname: kafka
+    networks:
+      - vnetwork
+    environment:
+      - BROKER_ID=1
+    volumes:
+      - /data/kafka:/var/lib/kafka
+      - /data/log/kafka:/var/log/kafka
+  kafka2:
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node2
+    image: rehanchy/kafka:kafka-2.13.2.7.0-1
+    hostname: kafka2
+    networks:
+      - vnetwork
+    environment:
+      - BROKER_ID=2
+    volumes:
+      - /data/kafka:/var/lib/kafka
+      - /data/log/kafka:/var/log/kafka
+
+  kafka3:
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node3
+    image: rehanchy/kafka:kafka-2.13.2.7.0-1
+    hostname: kafka3
+    networks:
+      - vnetwork
+    environment:
+      - BROKER_ID=3
+    volumes:
+      - /data/kafka:/var/lib/kafka
+      - /data/log/kafka:/var/log/kafka
+networks:
+  vnetwork:
+    external: true
+
