@@ -21,12 +21,11 @@ else
 fi
 
 sed -i "s|broker.id=.*|broker.id=$BROKER_ID|" "$serverConfigFile"  
-
 sed -i "s|@@HOSTNAME@@|${HOSTNAME}|g" "$producerConfigFile" 
 sed -i "s|@@HOSTNAME@@|${HOSTNAME}|g" "$serverConfigFile" 
 
-chown -R runuser:runuser kafka
 chown -R runuser:runuser $data
 chown -R runuser:runuser $log
+chown -R runuser:runuser kafka
 
 sudo -E -u runuser JMX_PORT=9999 kafka/bin/kafka-server-start.sh kafka/config/server.properties
