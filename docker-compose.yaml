@@ -5,7 +5,7 @@ services:
       placement:
         constraints:
           - node.labels.node == node1
-    image: rehanchy/kafka:kafka-2.13.2.7.0-1
+    image: rehanchy/kafka:kafka-2.13.2.7.0-3
     hostname: kafka
     networks:
       - vnetwork
@@ -19,7 +19,7 @@ services:
       placement:
         constraints:
           - node.labels.node == node2
-    image: rehanchy/kafka:kafka-2.13.2.7.0-1
+    image: rehanchy/kafka:kafka-2.13.2.7.0-3
     hostname: kafka2
     networks:
       - vnetwork
@@ -34,7 +34,7 @@ services:
       placement:
         constraints:
           - node.labels.node == node3
-    image: rehanchy/kafka:kafka-2.13.2.7.0-1
+    image: rehanchy/kafka:kafka-2.13.2.7.0-3
     hostname: kafka3
     networks:
       - vnetwork
