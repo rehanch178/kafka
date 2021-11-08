@@ -6,7 +6,7 @@ services:
         constraints:
           - node.labels.node == node1
     image: rehanchy/kafka:kafka-2.13.2.7.0-3
-    hostname: kafka
+    hostname: kafka1
     networks:
       - vnetwork
     environment:
